@@ -37,6 +37,11 @@ export default function Home() {
           className="flex-grow rounded-md ring-1 ring-gray-300 border-0 py-1.5 px-2"
           placeholder="url"
           onChange={(event) => setUrl(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' && url && !loading) {
+              fetchArticle(url);
+            }
+          }}
         />
         <button
           type="button"
